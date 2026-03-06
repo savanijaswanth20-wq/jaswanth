@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Love Sowmya ❤️</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+text-align:center;
+background:linear-gradient(45deg,#ff758c,#ff7eb3);
+color:white;
+overflow:hidden;
+}
+
+.container{
+margin-top:100px;
+}
+
+h1{
+font-size:45px;
+}
+
+button{
+padding:12px 25px;
+font-size:20px;
+border:none;
+border-radius:10px;
+margin:10px;
+cursor:pointer;
+}
+
+#yes{
+background:green;
+color:white;
+}
+
+#no{
+background:black;
+color:white;
+position:absolute;
+}
+
+#next{
+background:white;
+color:red;
+}
+
+.heart{
+position:absolute;
+font-size:20px;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0);}
+100%{transform:translateY(-100vh);}
+}
+
+.petal{
+position:absolute;
+font-size:18px;
+animation:fall 8s linear infinite;
+}
+
+@keyframes fall{
+0%{transform:translateY(-10vh);}
+100%{transform:translateY(100vh);}
+}
+
+#fireworks{
+font-size:70px;
+display:none;
+}
+
+.slideshow{
+margin-top:20px;
+}
+
+img{
+width:220px;
+border-radius:15px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Hi Sowmya ❤️</h1>
+
+<h2 id="message">I want to tell you something special...</h2>
+
+<button id="next" onclick="next()">Next</button>
+
+<br><br>
+
+<button id="yes" onclick="yes()">YES ❤️</button>
+<button id="no" onmouseover="move()">NO</button>
+
+<div id="fireworks">🎆🎆🎆🎆</div>
+
+<div class="slideshow">
+<img id="photo" src="https://picsum.photos/220">
+</div>
+
+</div>
+
+<audio autoplay loop>
+<source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3">
+</audio>
+
+<script>
+
+let step=0;
+
+function next(){
+
+step++;
+
+let msg=document.getElementById("message");
+
+if(step==1){
+msg.innerHTML="From the day I saw you...";
+}
+
+else if(step==2){
+msg.innerHTML="My life became more beautiful...";
+}
+
+else if(step==3){
+msg.innerHTML="Your smile makes my day...";
+}
+
+else if(step==4){
+msg.innerHTML="You are very special to me Sowmya...";
+}
+
+else if(step==5){
+msg.innerHTML="I really love you Sowmya ❤️";
+}
+
+else if(step==6){
+msg.innerHTML="Will you be my girlfriend? 💍";
+}
+
+}
+
+function yes(){
+
+document.getElementById("fireworks").style.display="block";
+
+alert("Yay! Sowmya said YES ❤️");
+
+}
+
+function move(){
+
+let button=document.getElementById("no");
+
+button.style.top=Math.random()*500+"px";
+button.style.left=Math.random()*500+"px";
+
+}
+
+function heart(){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(Math.random()*20+20)+"px";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+
+}
+
+setInterval(heart,300);
+
+
+function petal(){
+
+let petal=document.createElement("div");
+
+petal.className="petal";
+
+petal.innerHTML="🌹";
+
+petal.style.left=Math.random()*100+"vw";
+
+petal.style.fontSize=(Math.random()*15+15)+"px";
+
+document.body.appendChild(petal);
+
+setTimeout(()=>{
+petal.remove();
+},8000);
+
+}
+
+setInterval(petal,500);
+
+
+let photos=[
+"https://picsum.photos/220?1",
+"https://picsum.photos/220?2",
+"https://picsum.photos/220?3"
+];
+
+let index=0;
+
+setInterval(()=>{
+
+index++;
+
+if(index>=photos.length){
+index=0;
+}
+
+document.getElementById("photo").src=photos[index];
+
+},2000);
+
+</script>
+
+</body>
+</html>
